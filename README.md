@@ -1,4 +1,4 @@
-##No Fluff Reader
+## No Fluff Reader
 
 A minimal, privacy-minded Chrome extension + landing site and small API to read articles without paywalls or clutter. This repository contains three main packages: the browser extension (`extension/`), a marketing `landing/` site, and a small `api-server/` used for optional backend features.
 
