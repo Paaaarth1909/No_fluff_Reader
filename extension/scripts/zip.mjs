@@ -22,6 +22,22 @@ output.on("close", () => {
   console.log("Submit the zip to the Chrome Web Store for publication.");
 });
 
+output.on("close", () => {
+  try {
+    const targetDir = path.join(__dirname, "..", "landing", "public");
+    if (fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+      const dest = path.join(targetDir, path.basename(outputPath));
+      fs.copyFileSync(outputPath, dest);
+      console.log(`Copied ${path.basename(outputPath)} to ${dest}`);
+    } else {
+      console.log("landing/public not found; skipping copy of zip.");
+    }
+  } catch (err) {
+    console.warn("Failed to copy zip to landing/public:", err && err.message);
+  }
+});
+
 archive.on("error", (err) => { throw err; });
 
 archive.pipe(output);
