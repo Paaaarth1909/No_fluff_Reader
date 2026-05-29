@@ -1,0 +1,31 @@
+{
+  "name": "@workspace/extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "zip": "node scripts/zip.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.320",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "@tailwindcss/vite": "catalog:",
+    "framer-motion": "catalog:",
+    "lucide-react": "catalog:",
+    "clsx": "catalog:",
+    "tailwind-merge": "catalog:",
+    "tailwindcss": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-web-extension": "^4.2.0",
+    "typescript": "~5.9.2",
+    "archiver": "^7.0.1"
+  }
+}

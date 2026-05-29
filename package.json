@@ -1,0 +1,17 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; if echo \"$npm_config_user_agent\" | grep -q \"^pnpm/\"; then exit 0; fi; if echo \"$npm_execpath\" | grep -qi \"pnpm\"; then exit 0; fi; echo \"Use pnpm instead\" >&2; exit 1'",
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+  },
+  "private": true,
+  "devDependencies": {
+    "typescript": "~5.9.2",
+    "prettier": "^3.8.1"
+  },
+  "packageManager": "pnpm@11.1.2+sha512.415a1cc25974731e75455c1468371be74c5aa5fb7621b50d4056d222451609f11412f23fd602e6169f1e060466641f798597e1be961a10688836a67b16569499"
+}
