@@ -5,6 +5,7 @@
   "scripts": {
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; if echo \"$npm_config_user_agent\" | grep -q \"^pnpm/\"; then exit 0; fi; if echo \"$npm_execpath\" | grep -qi \"pnpm\"; then exit 0; fi; echo \"Use pnpm instead\" >&2; exit 1'",
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "vercel-build": "pnpm --dir extension build && pnpm --dir extension zip && mkdir -p landing/public && cp extension/no-fluff-reader.zip landing/public/no-fluff-reader.zip",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
